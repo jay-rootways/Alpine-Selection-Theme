@@ -791,7 +791,7 @@
             "enable_item_2": true,
             "item_width_2": "50%",
             "item_spacing_2": 25,
-            "image_2": "shopify:\/\/shop_images\/alpine-watch-bands-1.jpg",
+            "image_2": "shopify:\/\/shop_images\/cover_2024_6_1.jpg",
             "sub_title_2": "",
             "color_sub_title_2": "#ffffff",
             "title_2": "",
@@ -933,7 +933,7 @@
             "enable_item_2": true,
             "item_width_2": "50%",
             "item_spacing_2": 25,
-            "image_2": "shopify:\/\/shop_images\/renata-batteries.jpg",
+            "image_2": "shopify:\/\/shop_images\/renata_batteries.jpg",
             "sub_title_2": "",
             "color_sub_title_2": "#ffffff",
             "title_2": "",
@@ -1028,7 +1028,7 @@
         "image_KgH6Dc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/winders_2023.jpg",
+            "image": "shopify:\/\/shop_images\/headboard_winder.webp",
             "title": "Watch Winders",
             "color_text": "#000000",
             "color_text_hover": "#3e8cc4",
@@ -1190,7 +1190,7 @@
             "color_text_hover": "#3e8cc4",
             "description": "",
             "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/watch-battery"
+            "link": "shopify:\/\/collections\/batteries"
           }
         }
       },

@@ -157,21 +157,3 @@ class CartItems extends HTMLElement {
 
 customElements.define('cart-items', CartItems);
 
-class MainCartNote extends HTMLElement {
-  constructor() {
-    super();
-    
-      this.querySelector('[data-update-note]').addEventListener('click', (event) => {
-          this.val = this.querySelector('.text-area').value;
-          const body = JSON.stringify({ note: this.val });
-          fetch(`${routes.cart_update_url}`, {...fetchConfig(), ...{ body }});
-          document.querySelector('[data-update-note]').innerHTML = "SAVED!";
-          setTimeout(function () {
-             document.querySelector('[data-update-note]').innerHTML = "SAVE";
-          }, 2000);
-    })
-  }
-}
-
-customElements.define('cart-note', MainCartNote);
-

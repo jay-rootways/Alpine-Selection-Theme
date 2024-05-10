@@ -163,7 +163,7 @@
                                                                         <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
                                                                         <dd><s class="cart-item__old-price price price--end" data-item-original-price-display>{{ item.original_price | money }}</s></dd>
                                                                         <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
-                                                                        <dd class="price price--end" data-item-final-price-display>{{ item.final_price | money }}</dd>
+                                                                        <dd class="price price--end money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>{{ item.final_price | money }}</dd>
                                                                     </dl>
                                                                     {%- if item.variant.available and item.unit_price_measurement -%}
                                                                         <div class="unit-price caption">
@@ -185,7 +185,7 @@
                                                                         <dd class="price price--end" data-item-final-price-display>{{ current_variant.price | money }}</dd>
                                                                     </dl>
                                                                 {%- else -%}
-                                                                    <span class="price price--end" data-item-final-price-display>{{ item.original_price | money }}</span>
+                                                                    <span class="price price--end money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>{{ item.original_price | money }}</span>
                                                                 {%- endif -%}
                                                             </div>
                                                         </div>
@@ -215,7 +215,7 @@
                                                             <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
                                                             <dd><s class="cart-item__old-price price price--end" data-item-original-price-display>{{ item.original_price | money }}</s></dd>
                                                             <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
-                                                            <dd class="price price--end" data-item-final-price-display>{{ item.final_price | money }}</dd>
+                                                            <dd class="price price--end money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>{{ item.final_price | money }}</dd>
                                                         </dl>
                                                         {%- if item.variant.available and item.unit_price_measurement -%}
                                                             <div class="unit-price caption">
@@ -237,7 +237,7 @@
                                                             <dd class="price price--end" data-item-final-price-display>{{ current_variant.price | money }}</dd>
                                                         </dl>
                                                     {%- else -%}
-                                                        <span class="price price--end" data-item-final-price-display>{{ item.original_price | money }}</span>
+                                                        <span class="price price--end money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>{{ item.original_price | money }}</span>
                                                     {%- endif -%}
                                                 </div>
                                             </div>
@@ -257,7 +257,7 @@
                                                 endif 
                                             -%} 
                                             <div class="cart-item-block cart-item-total" data-price="{{ price_to_display }}" data-original-price="{{ item.original_price }}">
-                                                <span class="cart-item-value" data-item-price-with-quantity-display>{{ price_to_display | times: item.quantity | money }}</span>
+                                                <span class="cart-item-value money" data-line-total data-line-index="{{ forloop.index0 }}" data-item-price-with-quantity-display>{{ price_to_display | times: item.quantity | money }}</span>
                                             </div>
                                             <div class="cart-item-block cart-item-remove">
                                                 <a class="cart-remove" href="javascript:void(0)" data-cart-remove data-cart-remove-id="{{ item.id }}" data-line="{{ item.key }}" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">{% render 'icon-close' %}</a>
@@ -275,11 +275,11 @@
                                 </div>
                             {%- endif -%}
                             {%- if show_cart_note -%}
-                                <cart-note class="cart-note form-field">
-                                    <label class="form-label" for="cart-note">{{ 'general.cart.note' | t }}  </label> 
-                                    <textarea class="text-area form-input form-input-placeholder" name="note" id="cart-note" placeholder="{{ 'general.cart.note_placeholder' | t }}">{{ cart.note }}</textarea>
-                                    <a class="button button-1" data-update-note>{{ 'general.cart.save' | t }}</a>
-                                </cart-note>
+                                <div class="cart-note form-field">
+                                    <label class="form-label" for="cart-note">{{ 'general.cart.note' | t }}</label>
+                                    <textarea class="form-input form-input-placeholder" name="note" id="cart-note" placeholder="{{ 'general.cart.note_placeholder' | t }}">{{ cart.note }}</textarea>
+                                    <a class="button button-1" style="display: none" data-update-note>{{ 'general.cart.save' | t }}</a>
+                                </div>
                          
                             {%- endif -%}
                             {%- if show_trust_image -%}
@@ -295,7 +295,7 @@
                                     <div class="cart--totals-title">{{ 'general.cart.order_summary' | t }}</div>
                                     <li class="cart-total cart-total-subtotal">
                                         <div class="cart-total-label"><span class="text">{{ 'general.cart.subtotal' | t }}</span></div>
-                                        <div class="cart-total-value"><span class="text">{{ cart.original_total_price | money_with_currency }}</span></div>
+                                        <div class="cart-total-value money" data-cart-total><span class="text">{{ cart.original_total_price | money_with_currency }}</span></div>
                                     </li>
                                     {%- if show_shipping_rate_calculator -%}
                                         <li class="cart-total cart-total-shipping">
@@ -329,7 +329,7 @@
                                     </li>
                                     <li class="cart-total cart-total-grandtotal">
                                         <div class="cart-total-label"><span class="text">{{ 'general.cart.total' | t }}</span></div>  
-                                        <div class="cart-total-value" data-cart-total-value="{{ cart.total_price }}"><span class="text">{{ cart.total_price | money_with_currency }}</span></div>  
+                                        <div class="cart-total-value money" data-cart-total data-cart-total-value="{{ cart.total_price }}"><span class="text">{{ cart.total_price | money_with_currency }}</span></div>  
                                     </li>
                                     {%- if settings.show_shipping_note -%}
                                         <li class="shipTotal"><p class="cart-total-value form-text">{{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}</p></li>  
@@ -346,7 +346,7 @@
                                         </div>
                                     {%- endif -%}
                                     <div class="action-group">
-                                        <button class="button button-1 button-checkout" {% if settings.show_global_checkbox %} disabled="disabled" {% endif %} id="cart-checkout" data-href="{{ routes.cart_url | split: '/cart' | first }}/checkout">{{ 'sections.cart.proceed_to_checkout' | t }}</button>
+                                        <button type="submit" name="checkout" class="button button-1 button-checkout" {% if settings.show_global_checkbox %} disabled="disabled" {% endif %}>{{ 'sections.cart.proceed_to_checkout' | t }}</button>
                                         {%- if continue_button_action == "1" -%}
                                             <a class="button button-2 button-continue"{% if custom_button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ custom_button_link }}"{% endif %} role="button">{{ 'general.continue_shopping' | t }}</a>
                                         {%- else -%}
@@ -390,7 +390,6 @@
     @media (max-width: 550px) {#CartSection-{{ section.id }} .cart-container {padding-top: {{ padding_top_mobile }};padding-bottom: {{ padding_bottom_mobile }}}}
 </style>
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
-
 {% schema %}
 {
     "name": "t:sections.main_cart.name",

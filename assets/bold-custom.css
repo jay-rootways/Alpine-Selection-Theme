@@ -1,0 +1,7 @@
+[name="checkout"] * {
+  pointer-events: none !important;
+}
+
+.productView-price .money {
+  font-size: 18px;
+}
