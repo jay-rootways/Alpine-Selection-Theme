@@ -2986,6 +2986,13 @@
                 this.showWarning(err)
             }).finally(() => {
                 $target.removeClass('is-loading');
+
+              if (window.BOLD && BOLD.common && BOLD.common.eventEmitter &&
+                  typeof BOLD.common.eventEmitter.emit === 'function'){
+                BOLD.common.eventEmitter.emit('BOLD_COMMON_cart_loaded');
+ }
+
+
             })
         },
 
@@ -3205,6 +3212,14 @@
         },
 
         updateSidebarCart: function(cart) {
+          // Bold:PRE
+if(typeof window.BOLD !== 'undefined'
+&& typeof window.BOLD.common !== 'undefined'
+&& typeof window.BOLD.common.cartDoctor !== 'undefined') {
+// NOTE: "cart" should be the variable containing the cart json data
+cart = window.BOLD.common.cartDoctor.fix(cart);
+}
+// Bold:PRE
             if(!$.isEmptyObject(cart)){
                 const $cartDropdown = $('#halo-cart-sidebar .halo-sidebar-wrapper .previewCart-wrapper');
                 const $cartLoading = '<div class="loading-overlay loading-overlay--custom">\
@@ -3244,6 +3259,13 @@
                           Currency.convertAll(window.shop_currency, $('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
                         };
                         document.dispatchEvent(new CustomEvent('cart-update', { detail: cart }));
+
+                      if (window.BOLD && BOLD.common && BOLD.common.eventEmitter &&
+                  typeof BOLD.common.eventEmitter.emit === 'function'){
+                BOLD.common.eventEmitter.emit('BOLD_COMMON_cart_loaded');
+ }
+
+
                     }
                 });
             }
@@ -3411,6 +3433,13 @@
                         }
                         
                         document.dispatchEvent(new CustomEvent('cart-update', { detail: cart }));
+debugger
+                      if (window.BOLD && BOLD.common && BOLD.common.eventEmitter &&
+                  typeof BOLD.common.eventEmitter.emit === 'function'){
+                BOLD.common.eventEmitter.emit('BOLD_COMMON_cart_loaded');
+ }
+
+
                     }
                 });
             }

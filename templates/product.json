@@ -525,6 +525,7 @@
     },
     "product-recently-viewed": {
       "type": "product-recently-viewed",
+      "disabled": true,
       "custom_css": [
 
       ],

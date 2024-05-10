@@ -2,6 +2,21 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "blocks": {
+        "image_CTK9tY": {
+          "type": "image",
+          "settings": {
+            "show_image_parallax": false,
+            "show_bg_overlay": false,
+            "type": "custom",
+            "image": "shopify:\/\/shop_images\/headboard_titanium_bands.jpg",
+            "bg_overlay": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "image_CTK9tY"
+      ],
       "disabled": true,
       "settings": {
         "show_breadcrumb": true,
@@ -30,99 +45,44 @@
         "image_kwjLrM": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_10.jpg",
-            "title": "Wooden Box Series (5600)",
+            "image": "shopify:\/\/shop_images\/maxell-within-future.jpg",
+            "title": "Maxell Batteries",
             "color_text": "#000000",
             "color_text_hover": "#3e8cc4",
             "description": "",
             "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/wooden-box-series-5600s"
+            "link": "shopify:\/\/collections\/maxell-battery"
           }
         },
         "image_FBeCEc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_11.jpg",
-            "title": "Plastic Box Series (3600)",
+            "image": "shopify:\/\/shop_images\/renata_battery_banner_1.jpg",
+            "title": "Renata Batteries",
             "color_text": "#000000",
             "color_text_hover": "#3e8cc4",
             "description": "",
             "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/plastic-box-series-3600"
+            "link": "shopify:\/\/collections\/renata-battery"
           }
         },
-        "image_qQYybd": {
+        "image_pdxxDX": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_12.jpg",
-            "title": "Plastic Box Series (9100)",
+            "image": "shopify:\/\/shop_images\/Capacitor_1.jpg",
+            "title": "Capacitors",
             "color_text": "#000000",
             "color_text_hover": "#3e8cc4",
             "description": "",
             "color_des": "#3c3c3c",
-            "link": ""
-          }
-        },
-        "image_yjfXna": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_13.jpg",
-            "title": "Plastic Box Series (3100)",
-            "color_text": "#000000",
-            "color_text_hover": "#3e8cc4",
-            "description": "",
-            "color_des": "#3c3c3c",
-            "link": ""
-          }
-        },
-        "image_B3hmnU": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_14.jpg",
-            "title": "Plastic Box Series (4100) Red",
-            "color_text": "#000000",
-            "color_text_hover": "#3e8cc4",
-            "description": "",
-            "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/plastic-box-series-4100-red"
-          }
-        },
-        "image_UzpnXL": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_15.jpg",
-            "title": "Paper Box Series (1400)",
-            "color_text": "#000000",
-            "color_text_hover": "#3e8cc4",
-            "description": "",
-            "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/paper-box-series-1400"
-          }
-        },
-        "image_kQgtGk": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/imgsize_16.jpg",
-            "title": "Plastic Box Series (3700)",
-            "color_text": "#000000",
-            "color_text_hover": "#3e8cc4",
-            "description": "",
-            "color_des": "#3c3c3c",
-            "link": "shopify:\/\/collections\/plastic-box-series-3700"
+            "link": "shopify:\/\/collections\/capacitor"
           }
         }
       },
       "block_order": [
         "image_kwjLrM",
         "image_FBeCEc",
-        "image_qQYybd",
-        "image_yjfXna",
-        "image_B3hmnU",
-        "image_UzpnXL",
-        "image_kQgtGk"
-      ],
-      "custom_css": [
-        ".adaptive_height {height: 358px;}"
+        "image_pdxxDX"
       ],
       "settings": {
         "container": "container",
@@ -135,7 +95,7 @@
         "brand_bg": "#ffffff",
         "brand_bg_gradient": "",
         "title_align": "center_below",
-        "brand_title": "Jewellery Packing Boxes",
+        "brand_title": "Batteries",
         "color_title": "#232323",
         "fontsize_title": 22,
         "fontsize_title_mb": 16,
@@ -168,21 +128,21 @@
         "enable_arrows": false,
         "enable_dots": true,
         "enable_center_mode": false,
-        "style_position_arrows": "arrows_2",
-        "position_horizontal_arrow": 60,
-        "color_arrow": "#ffffff",
-        "arrow_background": "#232323",
+        "style_position_arrows": "none",
+        "position_horizontal_arrow": 15,
+        "color_arrow": "",
+        "arrow_background": "",
         "arrow_background_gradient": "",
-        "arrow_border": "#ffffff",
-        "color_arrow_hover": "#232323",
-        "arrow_background_hover": "#ffffff",
+        "arrow_border": "",
+        "color_arrow_hover": "",
+        "arrow_background_hover": "",
         "arrow_background_gradient_hover": "",
-        "arrow_border_hover": "#232323",
+        "arrow_border_hover": "",
         "brand_rows_mb": "1",
         "brand_image_ratio": "square",
         "item_distance": 15,
         "margin_bottom_image": 14,
-        "brand_item_border": "border",
+        "brand_item_border": "none",
         "border_radius": 0,
         "border_color": "#e2e5e7",
         "border_color_hover": "#2d2d2d",
@@ -191,7 +151,7 @@
         "fontsize_text": 16,
         "fontsize_text_mb": 13,
         "font_weight_title": "400",
-        "margin_bottom_title": 10,
+        "margin_bottom_title": 0,
         "mg_top_desktop": 50,
         "mg_top_tablet": 50,
         "mg_top_mobile": 50,

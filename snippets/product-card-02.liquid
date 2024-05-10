@@ -184,6 +184,19 @@
                     </div>
                     {% endunless %}
                 {%- endif -%}
+                 {%- if isColor -%}
+                {%- unless settings.show_swatch -%}
+                <div class="hidden">
+                {%- endunless -%}
+                    {% render 'product-swatch',
+                        product: product_card_product,
+                        index: index,
+                        variant_selected: variant_selected
+                    %}
+                {%- unless settings.show_swatch -%}
+                </div>
+                {%- endunless -%}
+            {%- endif -%}
                
                 <a class="card-title link-underline{% if settings.product_title_line_text != 'full' %} card-title-ellipsis{% endif %}{% if variant_selected != blank %} card-title-change{% endif %}" href="{{ product_card_product.url }}" data-product-title="{{ product_card_product.title | escape }}" data-product-url="{{ product_card_product.url }}">
                     <span class="text">
@@ -219,19 +232,7 @@
                     </div>
                 {%- endif -%}
             </div>
-            {%- if isColor -%}
-                {%- unless settings.show_swatch -%}
-                <div class="hidden">
-                {%- endunless -%}
-                    {% render 'product-swatch',
-                        product: product_card_product,
-                        index: index,
-                        variant_selected: variant_selected
-                    %}
-                {%- unless settings.show_swatch -%}
-                </div>
-                {%- endunless -%}
-            {%- endif -%}
+            
 
             {% if settings.display_text_size %}
                 {% assign variant_size = product_card_product.options_by_name['Size'].values | size %}

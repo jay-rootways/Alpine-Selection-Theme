@@ -623,10 +623,10 @@
         "collection_RYMV7U": {
           "type": "collection",
           "settings": {
-            "collection": "watch-and-jewelry-box",
+            "collection": "alpine-watch-boxes",
             "image": "shopify:\/\/shop_images\/imgsize_32.jpg",
             "display_countdown": false,
-            "title": "Watch and Jewelry boxes",
+            "title": "Watch  boxes",
             "title_font_size": 16,
             "title_font_size_mb": 16,
             "title_font_weight": "800",
@@ -771,7 +771,7 @@
         "collection_gaxXV8": {
           "type": "collection",
           "settings": {
-            "collection": "watch-battery",
+            "collection": "batteries",
             "image": "shopify:\/\/shop_images\/cell.png",
             "display_countdown": false,
             "title": "Batteries",

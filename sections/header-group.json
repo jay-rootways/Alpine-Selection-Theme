@@ -64,7 +64,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "customer_service_text": "<ul><li><h2><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/alpine_rios_2023-24_catalogue_jan2cp-sml.pdf?v=1709534723\" target=\"_blank\" title=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/alpine_rios_2023-24_catalogue_jan2cp-sml.pdf?v=1709534723\">Download Catalogue<\/a><\/h2><\/li><\/ul><p><\/p><p><\/p><p><\/p>",
+            "customer_service_text": "<ul><li><h2><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/alpine_rios_2024-25_catalogue-compressed.pdf?v=1714589634\" target=\"_blank\" title=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/alpine_rios_2024-25_catalogue-compressed.pdf?v=1714589634\">Download Catalogue<\/a><\/h2><\/li><\/ul><p><\/p><p><\/p><p><\/p>",
             "text_color": "#2d2d2d"
           }
         },
@@ -95,7 +95,6 @@
         ".productGrid .product {padding-left: 5px; padding-right: 5px;}",
         ".header-utility__content {grid-template-columns: auto auto auto;}",
         ".header-utility__item--search {display: flex; justify-content: center;}",
-        ".header-utility__item .header__languageCurrency {display: none;}",
         ".header-utility__item .header__languageCurrency {display: none;}"
       ],
       "settings": {
@@ -112,6 +111,7 @@
       "blocks": {
         "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0": {
           "type": "logo",
+          "disabled": true,
           "settings": {
             "logo_position": "sticky_menu",
             "logo": "shopify:\/\/shop_images\/store_logo.svg",
@@ -189,73 +189,6 @@
             "cart_count_bubble_bg_gradient": ""
           }
         },
-        "d3131109-9329-42fa-bbb5-d25d01fd698b": {
-          "type": "megamenu_style_1",
-          "disabled": true,
-          "settings": {
-            "layout_block": "custom_width",
-            "header_custom_width_size": 1200,
-            "item": "new in",
-            "column": 3,
-            "show_banner_1": true,
-            "banner_url_1": "shopify:\/\/collections\/blazero",
-            "show_product": true,
-            "product_title": "Featured Products",
-            "product_collection": "naminos-dementus-a-dincidunto-5"
-          }
-        },
-        "0e4cbbf3-fe5e-4e10-a837-c7651f114767": {
-          "type": "megamenu_style_2",
-          "disabled": true,
-          "settings": {
-            "layout_block": "custom_width",
-            "header_custom_width_size": 1200,
-            "item": "Alpine Watch Band",
-            "column": 5,
-            "show_banner_1": false,
-            "banner_url_1": "shopify:\/\/collections\/congue",
-            "show_banner_2": false,
-            "banner_url_2": "shopify:\/\/collections\/cosmopolis",
-            "show_banner_3": false,
-            "banner_url_3": "shopify:\/\/collections\/cosmopolitan"
-          }
-        },
-        "4d022900-5ec2-41b0-89c1-edea75a13c28": {
-          "type": "megamenu_style_3",
-          "disabled": true,
-          "settings": {
-            "layout_block": "custom_width",
-            "header_custom_width_size": 1200,
-            "mega_tyle": "style2",
-            "item": "Alpine Watch Band",
-            "column": 3,
-            "show_banner_1": true,
-            "banner_url_1": "shopify:\/\/products\/dempus-lortis-cosmo-sapiendo",
-            "show_banner_2": true,
-            "banner_url_2": "shopify:\/\/products\/dempus-lortis-cosmo-sapiendo-1",
-            "show_banner_3": true,
-            "banner_url_3": "shopify:\/\/products\/dempus-lortis-cosmo-sapiendo-2",
-            "show_banner_4": true,
-            "banner_url_4": "shopify:\/\/products\/dempus-lortis-cosmo-sapiendo-3",
-            "show_banner_5": true,
-            "banner_url_5": "shopify:\/\/products\/dempus-an-lortis-tempus-sapiendos"
-          }
-        },
-        "23b6fa6d-4f30-4a97-8dc1-2c516f8a7f0e": {
-          "type": "megamenu_style_1",
-          "disabled": true,
-          "settings": {
-            "layout_block": "custom_width",
-            "header_custom_width_size": 1200,
-            "item": "demo",
-            "column": 5,
-            "show_banner_1": false,
-            "banner_url_1": "shopify:\/\/products\/dempus-lortis-cosmo-sapiendo-4",
-            "show_product": false,
-            "product_title": "On Sale Products",
-            "product_collection": "dempus-an-lortis-tempus-sapiendos"
-          }
-        },
         "3d2520ed-30fc-4694-a7bd-8479ad2d6892": {
           "type": "megamenu_style_1",
           "settings": {
@@ -270,14 +203,14 @@
             "product_collection": ""
           }
         },
-        "01014ccc-ffe5-4c78-b814-da3ff7d8b45c": {
+        "megamenu_style_1_9EYqGb": {
           "type": "megamenu_style_1",
           "disabled": true,
           "settings": {
             "layout_block": "custom_width",
             "header_custom_width_size": 1200,
-            "item": "Shop",
-            "column": 4,
+            "item": "Bracelets",
+            "column": 2,
             "show_banner_1": false,
             "banner_url_1": "",
             "show_product": false,
@@ -285,19 +218,77 @@
             "product_collection": ""
           }
         },
-        "ec0f7e9f-1012-463e-a1fd-f9225f7f1cc3": {
+        "megamenu_style_1_N7TNMH": {
           "type": "megamenu_style_1",
           "disabled": true,
           "settings": {
             "layout_block": "custom_width",
             "header_custom_width_size": 1200,
-            "item": "Product",
-            "column": 5,
+            "item": "Batteries",
+            "column": 2,
             "show_banner_1": false,
             "banner_url_1": "",
             "show_product": false,
             "product_title": "Featured Products",
             "product_collection": ""
+          }
+        },
+        "megamenu_style_2_bKN3fx": {
+          "type": "megamenu_style_2",
+          "disabled": true,
+          "settings": {
+            "layout_block": "custom_width",
+            "header_custom_width_size": 1200,
+            "item": "Bracelets",
+            "column": 2,
+            "show_banner_1": false,
+            "banner_url_1": "",
+            "show_banner_2": false,
+            "banner_url_2": "",
+            "show_banner_3": false,
+            "banner_url_3": ""
+          }
+        },
+        "megamenu_style_3_4xe8y8": {
+          "type": "megamenu_style_3",
+          "disabled": true,
+          "settings": {
+            "layout_block": "custom_width",
+            "header_custom_width_size": 1200,
+            "mega_tyle": "style1",
+            "item": "Bracelets",
+            "column": 2,
+            "show_banner_1": false,
+            "banner_url_1": "",
+            "show_banner_2": false,
+            "banner_url_2": "",
+            "show_banner_3": false,
+            "banner_url_3": "",
+            "show_banner_4": false,
+            "banner_url_4": "",
+            "show_banner_5": false,
+            "banner_url_5": ""
+          }
+        },
+        "megamenu_style_4_qUQRdT": {
+          "type": "megamenu_style_4",
+          "settings": {
+            "layout_block": "custom_width",
+            "header_custom_width_size": 1200,
+            "item": "Catalog",
+            "column": 5,
+            "menu_text_left": "",
+            "menu_text_left_sale": "",
+            "show_banner_1": false,
+            "banner_url_1": "",
+            "show_banner_2": false,
+            "banner_url_2": "",
+            "show_az_brand": false,
+            "az_brand_title": "All Brands A-Z",
+            "az_brand_link_text": "See All Brands",
+            "az_brand_url": "",
+            "bg_mega_menu_bottom": "#f8f8f8",
+            "az_brand_link_text_color": "#000"
           }
         }
       },
@@ -305,13 +296,12 @@
         "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0",
         "54786c97-e881-45f5-a30a-6fdb552a963e",
         "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2",
-        "d3131109-9329-42fa-bbb5-d25d01fd698b",
-        "0e4cbbf3-fe5e-4e10-a837-c7651f114767",
-        "4d022900-5ec2-41b0-89c1-edea75a13c28",
-        "23b6fa6d-4f30-4a97-8dc1-2c516f8a7f0e",
         "3d2520ed-30fc-4694-a7bd-8479ad2d6892",
-        "01014ccc-ffe5-4c78-b814-da3ff7d8b45c",
-        "ec0f7e9f-1012-463e-a1fd-f9225f7f1cc3"
+        "megamenu_style_1_9EYqGb",
+        "megamenu_style_1_N7TNMH",
+        "megamenu_style_2_bKN3fx",
+        "megamenu_style_3_4xe8y8",
+        "megamenu_style_4_qUQRdT"
       ],
       "settings": {
         "container": "full",

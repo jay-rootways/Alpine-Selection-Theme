@@ -180,6 +180,7 @@
                             <div class="collection resultListing">
                                 <ul class="productListing{% if section.settings.collection_results_per_row == 1 %} productList{% else %} productGrid column-{{ layout }} {% endif %} list-{{ layout }} list-unstyled" id="main-collection-product-grid" data-id="{{ section.id }}">
                                     {%- for item in search.results -%}
+                                      <script type="application/json" class="bold-product-json">{{ item | json }}</script>
                                         {%- if item.object_type == 'product'-%}
                                             <li class="product{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}"{% if settings.banner_animation == 'effect_fade_up' %} style="--animation-order: {{ forloop.index }};"{% endif %}>    
                                                 {% render 'product-grid-layout',
@@ -215,6 +216,7 @@
                                                     <div class="halo-block-content">
                                                         <ul class="resultTable list-unstyled">
                                                             {%- for item in search.results %}
+                                                              <script type="application/json" class="bold-product-json">{{ item | json }}</script>
                                                                 <li class="item" data-listed-article-or-page>
                                                                     <div class="item-wrapper">
                                                                         <h6 class="title card-title">

@@ -94,7 +94,7 @@
                                             <s class="before-discount-price" data-item-original-price-display>
                                                 {{ item.original_price | money }}
                                             </s>
-                                            <span class="discounted-price" data-item-final-price-display>
+                                            <span class="discounted-price money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>
                                                 {{ item.final_price | money }}
                                             </span>
                                         </span>
@@ -108,7 +108,7 @@
                                             </span>
                                         </span>
                                     {% else %}  
-                                        <span data-item-final-price-display>
+                                        <span class="money" data-line-index="{{ forloop.index0 }}" data-item-final-price-display>
                                             {{ item.price | money }}
                                         </span>
                                     {% endif %}
@@ -272,7 +272,7 @@
         		<div class="previewCartTotals-label">
                     {{ 'sections.cart.subtotal' | t }}:
                 </div>
-                <div class="previewCartTotals-value" data-cart-subtotal>
+                <div class="previewCartTotals-value money" data-cart-total data-cart-subtotal>
                 	{{ cart.original_total_price | money_with_currency }}
                 </div>  
         	</li>       
@@ -288,7 +288,7 @@
         		<div class="previewCartTotals-label">
                     {{ 'general.cart.total' | t }}
                 </div>  
-                <div class="previewCartTotals-value" data-cart-total-value="{{ cart.total_price }}">
+                <div class="previewCartTotals-value money" data-cart-total data-cart-total-value="{{ cart.total_price }}">
                 	{{ cart.total_price | money_with_currency }}
                 </div>
         	</li>
@@ -315,12 +315,14 @@
                 </div>
             {%- endif -%}
             <div class="previewCartGroup">
-            	<button class="button button-1 button-checkout" onclick="window.location='{{ routes.cart_url | split: '/cart' | first }}/checkout'"{% if settings.show_global_checkbox %} disabled="disabled"{% endif %} id="cart-sidebar-checkout">
+             <form action="{{ routes.cart_url }}" method="post" novalidate>
+            	<button type="submit" name="checkout" class="button button-1 button-checkout" {% if settings.show_global_checkbox %} disabled="disabled"{% endif %} >
                     {{ 'sections.cart.checkout' | t }}
                 </button>
                 <a class="button button-2 button-view-cart" href="{{ routes.cart_url }}">
                     {{ 'sections.cart.view_cart' | t }}
                 </a>
+             </form>
             </div>
         </div>
     </div>

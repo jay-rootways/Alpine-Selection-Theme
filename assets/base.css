@@ -7330,9 +7330,41 @@ body.is-custom-information .background-overlay {
   }
 }
 
-/* -------   CSS By Jay ------------- */
+/* CSS By Jay ------------- */
 .shopify-policy__container {
   max-width: 130ch;
+}
+
+.halo-product-block .slick-arrow {
+    top: 50% !important;
+    -moz-transform: translate(0px, -50%);
+    -webkit-transform: translate(0px, -50%);
+    -o-transform: translate(0px, -50%);
+    -ms-transform: translate(0px, -50%);
+    transform: translate(0px, -50%);
+    bottom: unset;
+}
+
+/* Only for home page */
+.template-index .slick-prev.slick-arrow {
+    left: -10px !important;
+}
+.template-index .slick-next.slick-arrow {
+    right: -10px !important;
+}
+/* End Only for home page */
+
+/* Footer */
+.footer-block__details .rte .content-piece {
+    margin-bottom: 10px;
+}
+/* End Footer */
+
+.form__label label{
+  text-transform: none !important;
+}
+main#MainContent {
+    min-height: calc(100vh - 539px);
 }
 
 /* START: Halo Row */

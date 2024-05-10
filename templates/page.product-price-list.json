@@ -4,7 +4,11 @@
       "type": "product-price-list",
       "custom_css": [
         "p {font-size: 14px;}",
-        "h1 {text-align: center;}"
+        "h1 {text-align: center;}",
+        "table {border-collapse: collapse; width: 100%;}",
+        "th,td {border: 1px solid black; padding: 8px; text-align: left;}",
+        "tr:nth-child(even) {background-color: #f2f2f2;}",
+        "th {background-color: #4caf50; color: white;}"
       ],
       "settings": {
       }
@@ -20,7 +24,7 @@
             "heading_size": 30,
             "heading_size_mb": 30,
             "heading_line_height": 1,
-            "heading_color": "#000"
+            "heading_color": "#000000"
           }
         },
         "text_PmQENp": {
@@ -31,7 +35,7 @@
             "text_size": 16,
             "text_line_height": 1,
             "margin_top_text": 20,
-            "text_color": "#000",
+            "text_color": "#000000",
             "text_width": "800px"
           }
         },
@@ -41,14 +45,14 @@
             "button_label": "View Price Sheet",
             "margin_top_button": 30,
             "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/Alpine_Products.xlsx?v=1709619091",
-            "button_color": "#fff",
+            "button_color": "#ffffff",
             "enable_underline_button": false,
-            "button_border_color": "#000",
-            "button_bg_color": "#000",
+            "button_border_color": "#000000",
+            "button_bg_color": "#000000",
             "button_bg_gradient": "",
-            "button_color_hover": "#000",
-            "button_border_color_hover": "#000",
-            "button_bg_color_hover": "#fff",
+            "button_color_hover": "#000000",
+            "button_border_color_hover": "#000000",
+            "button_bg_color_hover": "#ffffff",
             "button_bg_gradient_hover": "",
             "button_width": "270px"
           }
@@ -88,7 +92,7 @@
         "mg_bottom_desktop": 50,
         "mg_bottom_tablet": 50,
         "mg_bottom_mobile": 50,
-        "rich_text_bg": "#fff",
+        "rich_text_bg": "#ffffff",
         "rich_text_bg_gradient": "",
         "enable_column": false
       }

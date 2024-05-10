@@ -160,7 +160,6 @@ customElements.define('cart-items', CartItems);
 class MainCartNote extends HTMLElement {
   constructor() {
     super();
-    
       this.querySelector('[data-update-note]').addEventListener('click', (event) => {
           this.val = this.querySelector('.text-area').value;
           const body = JSON.stringify({ note: this.val });

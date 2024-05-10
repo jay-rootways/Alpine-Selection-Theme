@@ -45,6 +45,15 @@ class VariantSelects extends HTMLElement {
             this.updateStickyAddToCart(false, !this.currentVariant.available);
             this.checkQuantityWhenVariantChange();
         }
+
+      //BOLD PRE
+if(typeof BOLD === "object" &&
+    typeof BOLD.pre === "object" &&
+    typeof BOLD.pre.events === "object" &&
+    typeof BOLD.pre.events.emit === "function"){
+  BOLD.pre.events.emit("variant_changed", {variant: this.currentVariant});
+}
+//End BOLD PRE
     }
 
     updateOptions() {

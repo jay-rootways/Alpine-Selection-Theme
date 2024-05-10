@@ -424,7 +424,7 @@
                                     </div>
                                 {%- endif -%}
                             {%- when 'price_range' -%}
-                                {% assign currencies_using_comma_decimals = "CAD,ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND" | split: ',' %}
+                                {% assign currencies_using_comma_decimals = "ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND" | split: ',' %}
                                 {% assign uses_comma_decimals = false %}
                                 {%- if currencies_using_comma_decimals contains cart.currency.iso_code -%}
                                     {% assign uses_comma_decimals = true %}
@@ -445,59 +445,59 @@
                                             <price-range class="facets__price">
                                                 <div class="facets__price--slider">
                                                     <div class="facets__price--slide">
-                                                        <input class="filter__price_change filter__price_min" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}" step="0.01" type="range" 
+                                                        <input class="filter__price_change filter__price_min" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' | ceil }}" step="1" type="range" 
                                                             {%- if filter.min_value.value -%}
                                                                 {%- if uses_comma_decimals -%}
-                                                                    value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                                                    value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', ''| floor }}"
                                                                 {%- else -%}
-                                                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}"
+                                                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' | floor}}"
                                                                 {% endif %}
                                                             {%- else -%}
                                                                 value="0"
                                                             {%- endif -%}
                                                             aria-label="Min">
-                                                        <input class="filter__price_change filter__price_max" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}" step="0.01" type="range" 
+                                                        <input class="filter__price_change filter__price_max" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' | ceil}}" step="1" type="range" 
                                                             {%- if filter.max_value.value -%}
                                                                 {%- if uses_comma_decimals -%}
-                                                                    value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                                                    value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' | ceil }}"
                                                                 {%- else -%}
-                                                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}"
+                                                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}"
                                                                 {% endif %}
                                                             {%- else -%}
-                                                                value="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}"
+                                                                value="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}"
                                                             {%- endif -%}
                                                             aria-label="Max">
                                                     </div>
                                                     <div class="facets__price--box price-slider clearfix">
                                                         <div class="form-field">
                                                             <span class="field__currency format-currency">{{ cart.currency.symbol }}</span>
-                                                            <span class="money format-money-input money--current-min hidden">{% if filter.min_value.value %}{{ filter.min_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}{% else %}0{% endif %}</span>
+                                                            <span class="money format-money-input money--current-min hidden">{% if filter.min_value.value %}{{ filter.min_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' | floor }}{% else %}0{% endif %}</span>
                                                             <label class="form-label hiddenLabels" for="Filter-Min-{{ filter.label | escape }}-{{ forloop.index }}">{{ 'sections.collection_template.min' | t }}</label>
                                                             <input class="form-input field__input filter__price filter__price--min" name="{{ filter.min_value.param_name }}" id="Filter-Min-{{ filter.label | escape }}-{{ forloop.index }}" 
                                                                 {%- if filter.min_value.value -%}
                                                                     {%- if uses_comma_decimals -%}
-                                                                        value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                                                        value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' | floor}}"
                                                                     {%- else -%}
-                                                                        value="{{ filter.min_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}"
+                                                                        value="{{ filter.min_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' | floor }}"
                                                                     {% endif %}
                                                                 {%- endif -%}
-                                                                type="number" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}" placeholder="0">
+                                                                type="number" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' | ceil }}" placeholder="0">
                                                         </div>
                                                         <span class="price-to-price">{{ 'sections.collection_template.to' | t }}</span>
                                                         <div class="form-field">
                                                             <span class="field__currency format-currency">{{ cart.currency.symbol }}</span>
-                                                            <span class="money format-money-input money--current-max hidden">{% if filter.max_value.value %}{{ filter.max_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}{% else %}{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}{% endif %}</span>
-                                                            <span class="money format-money-input money--max hidden" data-default-max="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}">{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}</span>
+                                                            <span class="money format-money-input money--current-max hidden">{% if filter.max_value.value %}{{ filter.max_value.value | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}{% else %}{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}{% endif %}</span>
+                                                            <span class="money format-money-input money--max hidden" data-default-max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}">{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}</span>
                                                             <label class="form-label hiddenLabels" for="Filter-Max-{{ filter.label | escape }}-{{ forloop.index }}">{{ 'sections.collection_template.max' | t }}</label>
                                                             <input class="form-input field__input filter__price filter__price--max" name="{{ filter.max_value.param_name }}" id="Filter-Max-{{ filter.label | escape }}-{{ forloop.index }}" 
                                                                 {%- if filter.max_value.value -%}
                                                                     {%- if uses_comma_decimals -%}
-                                                                        value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                                                        value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' | ceil}}"
                                                                     {%- else -%}
-                                                                        value="{{ filter.max_value.value | money_without_currency | replace: ',', '.' | replace: '.00', '' }}"
+                                                                        value="{{ filter.max_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' | ceil}}"
                                                                     {% endif %}
                                                                 {%- endif -%}
-                                                                type="number" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '.' | replace: '.00', '' }}">
+                                                                type="number" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', ''| ceil }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-actions">

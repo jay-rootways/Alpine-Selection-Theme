@@ -168,7 +168,7 @@
     padding: 3px 10px;
     font-size: var(--font-body-size);
     font-weight: var(--font-weight-normal);
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     color: var(--variant-color);
     background-color: var(--variant-bg);
     text-align: center;
@@ -272,7 +272,7 @@
 .facets__clear-all {
     font-size: var(--font-body-size);
     color: #3c3c3c;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .facets__reset .text,
@@ -760,4 +760,8 @@
 .facets__price--box .filter__price {
     padding: 12px 0 12px 0;
     text-align: right;
+}
+
+.facets__item--rectangle label {
+    text-transform: none;
 }
