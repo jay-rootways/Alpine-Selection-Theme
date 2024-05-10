@@ -157,6 +157,7 @@ class CartItems extends HTMLElement {
 
 customElements.define('cart-items', CartItems);
 
+
 class MainCartNote extends HTMLElement {
   constructor() {
     super();
