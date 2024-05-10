@@ -101,7 +101,7 @@
                                         <label class="product-form__label {{ option_stock }}" name="{{ option.name }}" for="option-{{ product.id }}-{{ option.name }}-{{ forloop.index0 }}" data-variant-id="{{ variant.id }}">
                                             <span
                                                 class="pattern"
-                                                style="background-color: {{ value | split: ' ' | last | handle }};{% if enable_variant_image %}{% if swatch_type == 'metafields' %}{% if color_codes %} background: {{ background_color }}{% else %} background: url({{ background_image }}); background-size: cover;{% endif %}{% else %} background-image: url({{ background_image }});{% endif %}{% endif %}"
+                                                style="background-color: {{ value | split: ' ' | last | handle }};{% if enable_variant_image %}{% if swatch_type == 'metafields' %}{% if color_codes %} background: {{ background_color }}{% else %} background: url({{ background_image }}); background-size: contain; background-repeat: no-repeat; background-position: center;{% endif %}{% else %} background-image: url({{ background_image }});{% endif %}{% endif %}"
                                             ></span>
                                             {% if swatch_type == 'variant_image' and variant.image %}
                                                 <span class="expand">

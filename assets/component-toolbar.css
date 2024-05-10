@@ -448,7 +448,7 @@ body.toolbar-modal-open {
 
     .toolbar {
         border-top: none;
-        padding: 25px 0;
+        padding: 0 0 10px 0;
     }
 
     .collection-masonry .sidebar--layout_vertical .page-sidebar--vertical {

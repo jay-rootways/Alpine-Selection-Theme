@@ -275,11 +275,17 @@
                                 </div>
                             {%- endif -%}
                             {%- if show_cart_note -%}
-                                <div class="cart-note form-field">
-                                    <label class="form-label" for="cart-note">{{ 'general.cart.note' | t }}</label>
-                                    <textarea class="form-input form-input-placeholder" name="note" id="cart-note" placeholder="{{ 'general.cart.note_placeholder' | t }}">{{ cart.note }}</textarea>
-                                    <a class="button button-1" style="display: none" data-update-note>{{ 'general.cart.save' | t }}</a>
-                                </div>
+            
+
+                                 <cart-note class="cart-note form-field">
+
+                                    <label class="form-label" for="cart-note">{{ 'general.cart.note' | t }}  </label> 
+
+                                    <textarea class="text-area form-input form-input-placeholder" name="note" id="cart-note" placeholder="{{ 'general.cart.note_placeholder' | t }}">{{ cart.note }}</textarea>
+
+                                    <a class="button button-1" data-update-note>{{ 'general.cart.save' | t }}</a>
+
+                                </cart-note>
                          
                             {%- endif -%}
                             {%- if show_trust_image -%}

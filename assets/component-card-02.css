@@ -624,3 +624,58 @@
 		bottom: 14px;
 	}
 }
+
+
+
+/* CSS by Jay */
+.product-card-layout-02 .card-action {
+    margin: 0;
+}
+.card-title-ellipsis {
+    margin-bottom: 5px;
+}
+.product-item {
+    padding: 10px;
+}
+.product-card-layout-02 .card-information {
+    padding-bottom: 0 !important;
+}
+.card-product+div:not(.card-swatch) {
+    margin-top: 5px;
+}
+.card-information__wrapper > .card-title {
+    margin-top: 35px;
+}
+.card-information__wrapper > .card-swatch + .card-title-ellipsis {
+    margin-top: 0;
+}
+.card-swatch {
+    min-height: 35px;
+}
+
+@media (max-width: 1024px){
+  .card-swatch {
+      margin: 0;
+  }
+}
+
+@media (max-width: 405px){
+  .product-card-layout-02 .card-swatch .swatch-label {
+      width: 20px;
+      height: 20px;
+  }
+  .card-information__wrapper>.card-title {
+      margin-top: 29px;
+  }
+  .card-action .button {
+      padding: 0 5px;
+  }
+  .card-swatch {
+      min-height: 30px;
+  }
+  
+  .product-card-layout-02 .card-swatch .item.item-swatch-more .number-showmore {
+      line-height: 20px;
+      padding: 0 5px;
+  }  
+}
