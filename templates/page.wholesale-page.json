@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "p {font-size: 14px;}",
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+      }
+    },
+    "1709548319bf3fc791": {
+      "type": "apps",
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "custom_liquid_dRGDpR": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "{SamitaWSRegistrationForm:MzM5}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1709548319bf3fc791",
+    "custom_liquid_dRGDpR"
+  ]
+}

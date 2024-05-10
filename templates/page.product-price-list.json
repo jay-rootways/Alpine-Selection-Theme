@@ -1,0 +1,101 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-price-list",
+      "custom_css": [
+        "p {font-size: 14px;}",
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+      }
+    },
+    "rich_text_6rUAPe": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kQVEqR": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": 30,
+            "heading_size_mb": 30,
+            "heading_line_height": 1,
+            "heading_color": "#000"
+          }
+        },
+        "text_PmQENp": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "text_size": 16,
+            "text_line_height": 1,
+            "margin_top_text": 20,
+            "text_color": "#000",
+            "text_width": "800px"
+          }
+        },
+        "button_ngm6wC": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Price Sheet",
+            "margin_top_button": 30,
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0644\/4410\/4888\/files\/Alpine_Products.xlsx?v=1709619091",
+            "button_color": "#fff",
+            "enable_underline_button": false,
+            "button_border_color": "#000",
+            "button_bg_color": "#000",
+            "button_bg_gradient": "",
+            "button_color_hover": "#000",
+            "button_border_color_hover": "#000",
+            "button_bg_color_hover": "#fff",
+            "button_bg_gradient_hover": "",
+            "button_width": "270px"
+          }
+        },
+        "social_media_9APT8C": {
+          "type": "social_media",
+          "disabled": true,
+          "settings": {
+            "social_spacing_top": 0,
+            "social_spacing_bottom": 0,
+            "social_icon_color": "",
+            "social_icon_background_color": "",
+            "social_icon_background_gradient": "",
+            "social_icon_hover_color": "",
+            "social_icon_background_hover_color": "",
+            "social_icon_background_hover_gradient": "",
+            "social_icon_ring_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_kQVEqR",
+        "text_PmQENp",
+        "button_ngm6wC",
+        "social_media_9APT8C"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "container",
+        "padding_full_width": 0,
+        "enable_border_top": false,
+        "enable_border_bottom": false,
+        "color_border_bottom": "#e8e8e8",
+        "mg_top_desktop": 50,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 50,
+        "mg_bottom_tablet": 50,
+        "mg_bottom_mobile": 50,
+        "rich_text_bg": "#fff",
+        "rich_text_bg_gradient": "",
+        "enable_column": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_6rUAPe"
+  ]
+}

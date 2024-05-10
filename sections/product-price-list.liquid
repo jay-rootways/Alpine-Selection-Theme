@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% if customer %}
+{% unless template.suffix contains 'landing' %}
+<div class="page-width page-width--narrow{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	<div class="container">
+	  <h1 class="main-page-title page-header{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	    {{ page.title | escape }}
+	  </h1>
+	  <div class="rte{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	    {{ page.content }}
+        <a href="https://cdn.shopify.com/s/files/1/0644/4410/4888/files/Alpine_Products.xlsx?v=1709619091" class="button" style="max-width:250px;">View Price Sheet </a>
+	  </div>
+  	</div>
+</div>
+{% endunless %}
+{% else %}
+  <div class="page-width page-width--narrow{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	<div class="container">
+	  <h1 class="main-page-title page-header{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	    {{ page.title | escape }}
+	  </h1>
+	  <div class="rte{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}">
+	    <!-- {{ page.content }} -->
+        <h4 class="text-center">Plase Login to view price sheet</h4>
+        <a href="{{ routes.account_login_url }}" class="button" style="max-width:250px;">Login </a>
+	  </div>
+  	</div>
+</div>
+{% endif %}
+  
+
+{% schema %}
+{
+  "name": "Product-price-list",
+  "tag": "section",
+  "class": "spaced-section"
+}
+{% endschema %}

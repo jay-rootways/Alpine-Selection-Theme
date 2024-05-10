@@ -1,0 +1,591 @@
+{% comment %}
+    This template will be automatically generated for you if the file doesn't exist,
+    but where's the fun in having no control? Define your layout below.
+
+    The 'layout settings.customer_layout' line is inserted at the top of every customer account template.
+    Your theme's settings determine to use the 'default' or 'theme' customer templates.
+    More info:
+    - http://www.tetchi.ca/shopify-theme-from-scratch-part-11/
+
+    Template note:
+    - All IDs on this template are required to make the form(s) submit properly
+    - There are two instances of inline JS below. Best practices advise separating this
+      into an external JS file
+    - There are separate 'add new' and 'edit' address forms
+{% endcomment %}
+
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
+
+<div class="account-page addresses-page">
+    <div class="container">
+        <h1 class="page-header">
+            {{ 'customer.addresses.title' | t }}
+        </h1>
+        <div class="halo-page-content addresses">
+            <customer-addresses class="account" data-customer-addresses>
+                <div class="account-body">
+                    {%- paginate customer.addresses by 5 -%}
+                        <div class="account-item">
+                            <div class="account-content">
+                                <div class="address-new" data-address>
+                                    <button
+                                        class="button button--primary"
+                                        type="button"
+                                        aria-expanded="false"
+                                        aria-controls="AddAddress"
+                                    >
+                                        {{ 'customer.addresses.add_new' | t }}
+                                    </button>
+                                    <div class="account-action">
+                                        <a href="{{ routes.account_url }}" class="link back-account link-underline">
+                                            <span class="text">{{ 'customer.account.return' | t }}</span>
+                                        </a>
+                                    </div>
+                                    <div id="AddAddress" class="address-form">
+                                        <h2 class="address-title text-left" id="AddressNewHeading">
+                                            {{ 'customer.addresses.add_new' | t }}
+                                        </h2>
+                                        {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+                                            <div class="address-form--wrapper">
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressFirstNameNew" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name" placeholder="{{ 'customer.addresses.first_name' | t }}">
+                                                    <span id="firstNameError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressLastNameNew" name="address[last_name]" value="{{ form.last_name }}" autocomplete="family-name" placeholder="{{ 'customer.addresses.last_name' | t }}">
+                                                    <span id="lastNameError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressCompanyNew" name="address[company]" value="{{ form.company }}" autocomplete="organization" placeholder="{{ 'customer.addresses.company' | t }}">
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressAddress1New" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
+                                                    <span id="address1Error" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressAddress2New" name="address[address2]" value="{{ form.address2 }}" autocomplete="address-line2" placeholder="{{ 'customer.addresses.address2' | t }}">
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressCityNew" name="address[city]" value="{{ form.city }}" autocomplete="address-level2" placeholder="{{ 'customer.addresses.city' | t }}">
+                                                    <span id="cityError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+                                                    <div class="form__select select">
+                                                        <select
+                                                            class="select__select"
+                                                            id="AddressCountryNew"
+                                                            name="address[country]"
+                                                            data-default="{{ form.country }}"
+                                                            autocomplete="country"
+                                                        >
+                                                            {{ all_country_option_tags }}
+                                                        </select>
+                                                    </div>
+                                                    <span id="countryError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field" id="AddressProvinceContainerNew" style="display: none">
+                                                    <label  class="form-label" for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+                                                    <div class="form__select select">
+                                                        <select
+                                                            class="select__select"
+                                                            id="AddressProvinceNew"
+                                                            name="address[province]"
+                                                            data-default="{{ form.province }}"
+                                                            autocomplete="address-level1"
+                                                        >
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="text" id="AddressZipNew" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" autocomplete="postal-code" placeholder="{{ 'customer.addresses.zip' | t }}">
+                                                    <span id="zipError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="form-label" for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+                                                    <input class="form-input form-input-placeholder" type="tel" id="AddressPhoneNew" name="address[phone]" value="{{ form.phone }}" autocomplete="tel" placeholder="{{ 'customer.addresses.phone' | t }}">
+                                                    <span id="phoneError" class="error-message"></span>
+                                                </div>
+                                                <div class="form-field form-field--full">
+                                                    {{ form.set_as_default_checkbox }}
+                                                    <label class="form-label form-label--checkbox" for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
+                                                </div>
+                                              <div id="genral_error" class="error-message"></div>
+                                                <div class="form-actions">
+                                                    <button class="button button--primary">{{ 'customer.addresses.add' | t }}</button>
+                                                    <button class="button button--secondary" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+                                                </div>
+                                            </div>
+                                        {%- endform -%}
+                                    </div>
+                                </div>
+
+                                <h2 class="address-title text-left">
+                                  {{ 'customer.addresses.address_book' | t }}
+                                </h2>
+                                <ul class="list-unstyled" role="list">
+                                    {%- for address in customer.addresses -%}
+                                        <li data-address>
+                                            <address class="address-content">
+                                                <h5 class="acc-name">
+                                                  {{ address.first_name | uppercase }} {{address.last_name | uppercase }}
+
+                                                  {% if address == customer.default_address %}
+                                                    <span class="default">{{ 'customer.addresses.default' | t }}</span>
+                                                  {% endif %}
+                                                </h5>   
+                                                <span class="cus-addr">
+                                                    {{ address.company }}
+                                                  </span>
+                                                  <span class="cus-addr">
+                                                    {{ address.street }}
+                                                  </span>
+                                                  <span class="cus-addr">
+                                                    {{ address.city | capitalize }}
+                                                  </span>
+                                                  {% if address.province_code %}
+                                                  <span class="cus-addr">
+                                                    {{ address.province_code | upcase }}
+                                                  </span>
+                                                  {% endif %}
+                                                  <span class="cus-addr">
+                                                    {{ address.zip | upcase }}
+                                                  </span>
+                                                  <span class="cus-addr">
+                                                    {{ address.country }}
+                                                  </span>
+                                                  <span class="cus-addr">
+                                                    {{ address.phone }}
+                                                  </span>
+                                            </address>
+                                            <button
+                                                class="address-button button button--secondary"
+                                                type="button"
+                                                id="EditFormButton_{{ address.id }}"
+                                                onclick="Shopify.CustomerAddress.toggleForm({{address.id}}); return false;"
+                                                aria-label="{{ 'customer.addresses.edit_address' | t }} {{ forloop.index }}"
+                                                aria-controls="EditAddress_{{ address.id }}"
+                                                aria-expanded="false"
+                                                data-address-id="{{ address.id }}"
+                                            >
+                                                {{ 'customer.addresses.edit' | t }}
+                                            </button>
+                                            <button
+                                                class="address-button button button--secondary button-delete"
+                                                type="button"
+                                                aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
+                                                data-target="{{ address.url }}"
+                                                data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
+                                            >
+                                                {{ 'customer.addresses.delete' | t }}
+                                            </button>
+                                          <div id="EditAddress_{{ address.id }}" class="address-form edit-address" style="display:none;">
+                                    <h2 class="address-title text-left">
+                                        {{ 'customer.addresses.edit_address' | t }}: {{ address.first_name | uppercase }} {{address.last_name | uppercase }} {% if address == customer.default_address %}
+                                            <span class="default">{{ 'customer.addresses.default' | t }}</span>
+                                          {% endif %}
+                                    </h2>
+                                    {%- form 'customer_address', address -%}
+                                        <div class="address-form--wrapper">
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressFirstName_{{ form.id }}">
+                                                    {{ 'customer.addresses.first_name' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name" placeholder="{{ 'customer.addresses.first_name' | t }}">
+                                                <span id="editfirstNameError_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressLastName_{{ form.id }}">
+                                                    {{ 'customer.addresses.last_name' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressLastName_{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}" autocomplete="family-name" placeholder="{{ 'customer.addresses.last_name' | t }}">
+                                                <span id="editlastNameError_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressCompany_{{ form.id }}">
+                                                    {{ 'customer.addresses.company' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}" autocomplete="organization" placeholder="{{ 'customer.addresses.company' | t }}">
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressAddress1_{{ form.id }}">
+                                                    {{ 'customer.addresses.address1' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
+                                                <span id="editaddress1Error_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressAddress2_{{ form.id }}">
+                                                    {{ 'customer.addresses.address2' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" autocomplete="address-line2" placeholder="{{ 'customer.addresses.address2' | t }}">
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" autocomplete="address-level2" placeholder="{{ 'customer.addresses.city' | t }}">
+                                                <span id="editcityError_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressCountry_{{ form.id }}">
+                                                  {{ 'customer.addresses.country' | t }}
+                                                </label>
+                                                <div class="form__select select">
+                                                    <select
+                                                        class="select__select"
+                                                        id="AddressCountry_{{ form.id }}"
+                                                        name="address[country]"
+                                                        data-address-country-select
+                                                        data-default="{{ form.country }}"
+                                                        data-form-id="{{ form.id }}"
+                                                        autocomplete="country"
+                                                    >
+                                                        {{ all_country_option_tags }}
+                                                    </select>
+                                                  <span id="editcountryError_{{ form.id }}" class="error-message"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-field" id="AddressProvinceContainer_{{ form.id }}" style="display:none;">
+                                                <label class="form-label" for="AddressProvince_{{ form.id }}">
+                                                    {{ 'customer.addresses.province' | t }}
+                                                </label>
+                                                <div class="form__select select">
+                                                    <select
+                                                        class="select__select"
+                                                        id="AddressProvince_{{ form.id }}"
+                                                        name="address[province]"
+                                                        data-default="{{ form.province }}"
+                                                        autocomplete="address-level1"
+                                                    >
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressZip_{{ form.id }}">
+                                                    {{ 'customer.addresses.zip' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" autocomplete="postal-code" placeholder="{{ 'customer.addresses.zip' | t }}">
+                                                <span id="editzipError_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field">
+                                                <label class="form-label" for="AddressPhone_{{ form.id }}">
+                                                    {{ 'customer.addresses.phone' | t }}
+                                                </label>
+                                                <input class="form-input form-input-placeholder" type="tel" id="AddressPhone_{{ form.id }}"  name="address[phone]" value="{{ form.phone }}" autocomplete="tel" placeholder="{{ 'customer.addresses.phone' | t }}">
+                                                <span id="editphoneError_{{ form.id }}" class="error-message"></span>
+                                            </div>
+                                            <div class="form-field form-field--full">
+                                                {{ form.set_as_default_checkbox }}
+                                                <label class="form-label form-label--checkbox" for="address_default_address_{{ form.id }}">
+                                                    {{ 'customer.addresses.set_default' | t }}
+                                                </label>
+                                            </div>
+                                            <div id="genral_err_{{ form.id }}" class="error-message"></div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button class="button button--primary">{{ 'customer.addresses.update' | t }}</button>
+                                            <button class="button button--secondary" type="reset" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">{{ 'customer.addresses.cancel' | t }}</button>
+                                        </div>
+                                    {%- endform -%}
+                                </div>
+                                        </li>
+                                    {%- endfor -%}
+                                </ul>
+
+                                <!-- {%- for address in customer.addresses -%}    
+                                
+                                {%- endfor -%} -->
+                            </div>
+                        </div>
+                        {%- if paginate.pages > 1 -%}
+                            {% render 'pagination', paginate: paginate, anchor: '', class: 'order-pagination pagination-wrapper text-center' %}
+                        {%- endif -%}
+                    {%- endpaginate -%}
+                </div>
+            </customer-addresses>
+        </div>
+    </div>
+</div>
+
+<script>
+    Shopify.CustomerAddress = {
+        toggleForm: function(id) {
+          var editEl = document.getElementById('EditAddress_'+id);
+          editEl.style.display = editEl.style.display == 'none' ? '' : 'none';
+          editEl.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+          return false;
+        }
+    }
+
+</script>
+<script defer>
+  // Script for add_new_form start here -------------------------------------------
+document.getElementById('address_form_new').addEventListener('submit', function(e) {
+    e.preventDefault();
+    validateneNewForm();
+});
+
+function validateneNewForm() {
+    clearErrorMessages();
+
+    const firstName = document.getElementById('AddressFirstNameNew');
+    const lastName = document.getElementById('AddressLastNameNew');
+    const address1 = document.getElementById('AddressAddress1New');
+    const city = document.getElementById('AddressCityNew');
+    const country = document.getElementById('AddressCountryNew');
+    const zip = document.getElementById('AddressZipNew');
+    const phone = document.getElementById('AddressPhoneNew');
+
+    validateNameField(firstName, 'firstNameError', "First name",2);
+    validateNameField(lastName, 'lastNameError', "Last name",2);
+    validateField(address1, 'address1Error', "Address 1", 10);
+    validateField(city, 'cityError', "City");
+    validateDropdown(country, 'countryError', "Country");
+    validateField(zip, 'zipError', "Zip Code");
+    validatePhoneNumber(phone, 'phoneError', "Phone Number");
+
+    // Check if there are any error messages
+    const errors = [
+        'firstNameError',
+        'lastNameError',
+        'address1Error',
+        'cityError',
+        'countryError',
+        'zipError',
+        'phoneError'
+    ];
+
+    if (errors.every(error => document.getElementById(error).textContent === "")) {
+        // No errors, proceed with form submission
+        console.log("Form is valid. Submitting...");
+        document.getElementById('address_form_new').submit();
+    } else {
+      const generalErrorContainer = document.getElementById(`genral_error`);
+      generalErrorContainer.textContent = "Form has errors. Please fix them before submitting.";
+        console.log("Form has errors. Please fix them before submitting.");
+    }
+}
+
+function validateNameField(field, errorId, fieldName, minLength) {
+    const value = field.value.trim();
+    const errorElement = document.getElementById(errorId);
+    const nameRegex = /^[a-zA-Z\s]+$/; // Only letters and spaces
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else if (minLength && value.length < minLength) {
+        errorElement.textContent = `${fieldName} must be at least ${minLength} characters`;
+    } else if (!nameRegex.test(value)) {
+        errorElement.textContent = `${fieldName} can only contain letters and spaces`;
+    } else {
+        // No errors
+        errorElement.textContent = "";
+    }
+}
+
+  // Validation for dropdown field
+function validateDropdown(field, errorId, fieldName) {
+    const value = field.value;
+    const errorElement = document.getElementById(errorId);
+
+    // Check if the field is empty (not selected)
+    if (value === "---") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else {
+        // No errors
+        errorElement.textContent = "";
+    }
+}
+
+function validateField(field, errorId, fieldName, minLength) {
+    const value = field.value.trim();
+    const errorElement = document.getElementById(errorId);
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else {
+        // Check additional validations (e.g., minimum length)
+        if (minLength && value.length < minLength) {
+            errorElement.textContent = `${fieldName} must be at least ${minLength} characters`;
+        } else {
+            // No errors
+            errorElement.textContent = "";
+        }
+    }
+}
+
+// Validation for Phone number field --------------------------------------
+function validatePhoneNumber(phoneField, errorId, fieldName) {
+    const value = phoneField.value.trim();
+    const errorElement = document.getElementById(errorId);
+     const phoneRegex = /^[\d\s()-]+$/;  // Only digits, spaces, hyphens, and parentheses
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else if (!phoneRegex.test(value)) {
+        errorElement.textContent = `${fieldName} can only contain digits, hyphens, and parentheses`;
+    } else {
+        // No errors
+        errorElement.textContent = "";
+    }
+}
+
+
+function clearErrorMessages() {
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+        element.textContent = "";
+    });
+}
+
+  // Script for add_new_form end here -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// Edit Form script start here -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  document.addEventListener("DOMContentLoaded", function() {
+  // Get all elements with the class 'edit-address'
+const editAddressForms = document.querySelectorAll('.edit-address');
+
+// Add event listener to each edit address form
+// Add event listener to each edit address form
+editAddressForms.forEach(editForm => {
+    editForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Extract the form ID number
+        const formIdNumber = extractFormIdNumber(editForm.id);
+
+        // Pass the form ID number to the validation function
+        validateEditAddressForm(editForm, formIdNumber);
+    });
+});
+
+  
+function  validateEditAddressForm(editForm,formIdNumber) {
+    clearEditErrorMessages();
+
+     // For example, you can retrieve form elements like this:
+     const firstName = editForm.querySelector('[name="address[first_name]"]');
+     const lastName = editForm.querySelector('[name="address[last_name]"]');
+    const address1 = editForm.querySelector('[name="address[address1]"]');
+    const city = editForm.querySelector('[name="address[city]"]');
+    const country = editForm.querySelector('[name="address[country]"]');
+    const zip = editForm.querySelector('[name="address[zip]"]');
+    const phone = editForm.querySelector('[name="address[phone]"]');
+
+    validateEditNameField(firstName, `editfirstNameError_${formIdNumber}`, "First name",2);
+    validateEditNameField(lastName, `editlastNameError_${formIdNumber}`, "Last name",2);
+    validateEditField(address1, `editaddress1Error_${formIdNumber}`, "Address 1", 10);
+    validateEditField(city,`editcityError_${formIdNumber}`, "City");
+    validateEditField(country, `editcountryError_${formIdNumber}`, "Country");
+    validateEditField(zip, `editzipError_${formIdNumber}`, "Zip Code");
+    validateeditPhoneNumber(phone,`editphoneError_${formIdNumber}`, "Phone Number");
+
+    // Check if there are any error messages
+      const errors = [
+        `editfirstNameError_${formIdNumber}`,
+        `editlastNameError_${formIdNumber}`,
+        `editaddress1Error_${formIdNumber}`,
+        `editcityError_${formIdNumber}`,
+        `editcountryError_${formIdNumber}`,
+        `editzipError_${formIdNumber}`,
+        `editphoneError_${formIdNumber}`
+    ];
+
+  const generalErrorContainer = document.getElementById(`genral_err_${formIdNumber}`);
+       if (errors.some((error) => document.getElementById(error).textContent !== "") ) {
+      generalErrorContainer.textContent = "Form has errors. Please fix them before submitting.";
+    } else {
+         generalErrorContainer.textContent = ""; 
+      // No errors, proceed with form submission
+      editForm.getElementsByTagName("form")[0].submit();
+    }
+  }
+
+
+    function extractFormIdNumber(formId) {
+    const match = formId.match(/\d+/); // Extract numeric part using regular expression
+    return match ? match[0] : null;
+}
+
+
+
+// Validation for first and last name -------------------------------
+function validateEditNameField(field, errorId, fieldName, minLength) {
+    const value = field.value.trim();
+    const errorElement = document.getElementById(errorId);
+    const nameRegex = /^[a-zA-Z\s]+$/; // Only letters and spaces
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else if (minLength && value.length < minLength) {
+        errorElement.textContent = `${fieldName} must be at least ${minLength} characters`;
+    } else if (!nameRegex.test(value)) {
+        errorElement.textContent = `${fieldName} can only contain letters and spaces`;
+    } else {
+        // No errors
+        errorElement.textContent = "";
+    }
+}
+
+
+// Validation for other field -----------------------------------------------
+function validateEditField(field, errorId, fieldName, minLength) {
+    const value = field.value.trim();
+    const errorElement = document.getElementById(errorId);
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else {
+        // Check additional validations (e.g., minimum length)
+        if (minLength && value.length < minLength) {
+            errorElement.textContent = `${fieldName} must be at least ${minLength} characters`;
+        } else {
+            // No errors
+            errorElement.textContent = "";
+        }
+    }
+}
+
+// Validation for Phone number field --------------------------------------
+function validateeditPhoneNumber(phoneField, errorId, fieldName) {
+    const value = phoneField.value.trim();
+    const errorElement = document.getElementById(errorId);
+     const phoneRegex = /^[\d\s()-]+$/;  // Only digits, spaces, hyphens, and parentheses
+
+    // Check if the field is empty
+    if (value === "") {
+        errorElement.textContent = `${fieldName} is required`;
+    } else if (!phoneRegex.test(value)) {
+        errorElement.textContent = `${fieldName} can only contain digits, hyphens, and parentheses`;
+    } else {
+        // No errors
+        errorElement.textContent = "";
+    }
+}
+
+// clear error message
+function clearEditErrorMessages() {
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+        element.textContent = "";
+    });
+}
+
+    });
+
+</script>
